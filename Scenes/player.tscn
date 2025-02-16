@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://d218sffoa4sy3"]
+
+[ext_resource type="Script" path="res://Scenes/character_body_2d.gd" id="1_2h7dc"]
+[ext_resource type="Texture2D" uid="uid://dck1m6k2tbv8p" path="res://Assets/Virus/Virus_0000_Package-----------------.png" id="2_tk5sx"]
+
+[sub_resource type="Animation" id="Animation_inecf"]
+resource_name = "Idle"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.191986]
+}
+
+[sub_resource type="Animation" id="Animation_1848i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vol7s"]
+_data = {
+"Idle": SubResource("Animation_inecf"),
+"RESET": SubResource("Animation_1848i")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u4pcf"]
+radius = 59.4811
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_2h7dc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tk5sx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_vol7s")
+}
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u4pcf")

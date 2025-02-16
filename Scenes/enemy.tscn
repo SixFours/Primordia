@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://6oyg0y0sd1mc"]
+
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_1ii6d"]
+[ext_resource type="Texture2D" uid="uid://bp2rhq6e2a7dl" path="res://Assets/Virus/Virus_0013_Package-----------------.png" id="1_5jaks"]
+
+[sub_resource type="Animation" id="Animation_yx1c8"]
+resource_name = "Idle"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.300197]
+}
+
+[sub_resource type="Animation" id="Animation_o67nw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5jslt"]
+_data = {
+"Idle": SubResource("Animation_yx1c8"),
+"RESET": SubResource("Animation_o67nw")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_riep4"]
+radius = 762.129
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jhl25"]
+radius = 50.0
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_1ii6d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5jaks")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_5jslt")
+}
+autoplay = "Idle"
+
+[node name="Follow Zone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Follow Zone"]
+shape = SubResource("CircleShape2D_riep4")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Kill Box" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill Box"]
+shape = SubResource("CircleShape2D_jhl25")
+
+[connection signal="body_entered" from="Follow Zone" to="." method="_on_follow_zone_body_entered"]
+[connection signal="body_exited" from="Follow Zone" to="." method="_on_follow_zone_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Kill Box" to="." method="_on_kill_box_body_entered"]

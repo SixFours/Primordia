@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://1yimmlx1m30p"]
+
+[ext_resource type="PackedScene" uid="uid://d218sffoa4sy3" path="res://Scenes/player.tscn" id="1_rl7p1"]
+[ext_resource type="PackedScene" uid="uid://6oyg0y0sd1mc" path="res://Scenes/enemy.tscn" id="2_fpu0b"]
+[ext_resource type="Texture2D" uid="uid://d3adm5mo4f6ss" path="res://Assets/360_F_154153098_8s3pQS0OC9b64NUe7Km3eQuWf5Epk9Bj.jpg" id="3_uoa54"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_vgyo4"]
+vertices = PackedVector2Array(2012.05, 1112.96, -1647.89, 1101.03, -1626.1, -990.039, 2023.94, -1005.95)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2034, -1016, 2022, 1123, -1658, 1111, -1636, -1000)])
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xud2k"]
+normal = Vector2(0, 1)
+distance = -1000.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hw5s6"]
+normal = Vector2(-1, 0)
+distance = -1959.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rh2j0"]
+normal = Vector2(0.999922, 0.012499)
+distance = -1617.17
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mob2n"]
+distance = -1101.0
+
+[node name="Game" type="Node2D"]
+position = Vector2(-26, -47)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(232.5, 63.9999)
+scale = Vector2(9.13519, 8.47778)
+texture = ExtResource("3_uoa54")
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_rl7p1")]
+position = Vector2(-2, 0)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Enemy" parent="." instance=ExtResource("2_fpu0b")]
+position = Vector2(829, -39)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(0, -6)
+navigation_polygon = SubResource("NavigationPolygon_vgyo4")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, -6)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
+position = Vector2(0, 6)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_xud2k")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(0, -6)
+shape = SubResource("WorldBoundaryShape2D_hw5s6")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(0, -6)
+shape = SubResource("WorldBoundaryShape2D_rh2j0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(0, -6)
+shape = SubResource("WorldBoundaryShape2D_mob2n")
+
+[node name="Enemy2" parent="." groups=["Enemies"] instance=ExtResource("2_fpu0b")]
+position = Vector2(-1159, 835)
+
+[node name="Enemy3" parent="." groups=["Enemies"] instance=ExtResource("2_fpu0b")]
+position = Vector2(-1624, -1008)
+
+[node name="Enemy4" parent="." groups=["Enemies"] instance=ExtResource("2_fpu0b")]
+position = Vector2(1984, 970)
+
+[node name="Enemy5" parent="." groups=["Enemies"] instance=ExtResource("2_fpu0b")]
+position = Vector2(1870, -1026)
