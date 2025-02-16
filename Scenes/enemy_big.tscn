@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://qyras31unr04"]
+
+[ext_resource type="PackedScene" uid="uid://6oyg0y0sd1mc" path="res://Scenes/enemy.tscn" id="1_t7k24"]
+[ext_resource type="Texture2D" uid="uid://cyutrr7ckup21" path="res://Assets/Virus/Virus_0005_Package-----------------.png" id="2_5axrc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vab2"]
+radius = 1146.1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hmh4g"]
+radius = 109.293
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_01yfd"]
+radius = 99.3227
+
+[node name="Enemy" instance=ExtResource("1_t7k24")]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_5axrc")
+
+[node name="Follow Box" parent="Follow Area" index="0"]
+shape = SubResource("CircleShape2D_1vab2")
+
+[node name="Kill Box" parent="Kill Area" index="0"]
+shape = SubResource("CircleShape2D_hmh4g")
+
+[node name="Collision Box" parent="." index="5"]
+shape = SubResource("CircleShape2D_01yfd")

@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://1yimmlx1m30p"]
+[gd_scene load_steps=12 format=3 uid="uid://1yimmlx1m30p"]
 
 [ext_resource type="PackedScene" uid="uid://d218sffoa4sy3" path="res://Scenes/player.tscn" id="1_rl7p1"]
 [ext_resource type="PackedScene" uid="uid://6oyg0y0sd1mc" path="res://Scenes/enemy.tscn" id="2_fpu0b"]
 [ext_resource type="Texture2D" uid="uid://d3adm5mo4f6ss" path="res://Assets/360_F_154153098_8s3pQS0OC9b64NUe7Km3eQuWf5Epk9Bj.jpg" id="3_uoa54"]
+[ext_resource type="PackedScene" uid="uid://qyras31unr04" path="res://Scenes/enemy_big.tscn" id="4_x5u1h"]
+[ext_resource type="PackedScene" uid="uid://cucr6owph7suf" path="res://Scenes/enemy_small.tscn" id="5_x12jm"]
+[ext_resource type="PackedScene" uid="uid://c78u24n1pskx6" path="res://Scenes/food.tscn" id="6_yl3sp"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vgyo4"]
 vertices = PackedVector2Array(2012.05, 1112.96, -1647.89, 1101.03, -1626.1, -990.039, 2023.94, -1005.95)
@@ -33,7 +36,7 @@ scale = Vector2(9.13519, 8.47778)
 texture = ExtResource("3_uoa54")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_rl7p1")]
-position = Vector2(-2, 0)
+position = Vector2(105, -51)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -66,13 +69,43 @@ position = Vector2(0, -6)
 shape = SubResource("WorldBoundaryShape2D_mob2n")
 
 [node name="Enemy2" parent="." groups=["Enemies"] instance=ExtResource("2_fpu0b")]
-position = Vector2(-1159, 835)
+position = Vector2(-1181, 844)
 
 [node name="Enemy3" parent="." groups=["Enemies"] instance=ExtResource("2_fpu0b")]
-position = Vector2(-1624, -1008)
+position = Vector2(-1234, -784)
 
 [node name="Enemy4" parent="." groups=["Enemies"] instance=ExtResource("2_fpu0b")]
-position = Vector2(1984, 970)
+position = Vector2(1831, 957)
 
 [node name="Enemy5" parent="." groups=["Enemies"] instance=ExtResource("2_fpu0b")]
-position = Vector2(1870, -1026)
+position = Vector2(1757, -799)
+
+[node name="BigEnemy1" parent="." instance=ExtResource("4_x5u1h")]
+position = Vector2(-496, -921)
+collision_layer = 6
+collision_mask = 4
+speed = 50.0
+
+[node name="SmallEnemy1" parent="." instance=ExtResource("5_x12jm")]
+position = Vector2(-120, 696)
+
+[node name="SmallEnemy2" parent="." instance=ExtResource("5_x12jm")]
+position = Vector2(1072, -933)
+
+[node name="Food" parent="." instance=ExtResource("6_yl3sp")]
+position = Vector2(480, 790)
+
+[node name="Food2" parent="." instance=ExtResource("6_yl3sp")]
+position = Vector2(1873, -150)
+
+[node name="Food3" parent="." instance=ExtResource("6_yl3sp")]
+position = Vector2(-1403, 601)
+
+[node name="Food4" parent="." instance=ExtResource("6_yl3sp")]
+position = Vector2(-1430, -98)
+
+[node name="Food5" parent="." instance=ExtResource("6_yl3sp")]
+position = Vector2(261, -895)
+
+[node name="Food6" parent="." instance=ExtResource("6_yl3sp")]
+position = Vector2(-412, 125)

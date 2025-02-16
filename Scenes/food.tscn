@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://c78u24n1pskx6"]
+
+[ext_resource type="Texture2D" uid="uid://t5ud81yhkdqx" path="res://Assets/Virus/Virus_0010_Package-----------------.png" id="1_cd6ub"]
+[ext_resource type="Script" path="res://Scripts/food.gd" id="1_eqlde"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nbdp6"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cs41v"]
+radius = 383.033
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0og4x"]
+radius = 16.0
+
+[node name="Food" type="CharacterBody2D"]
+script = ExtResource("1_eqlde")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_cd6ub")
+
+[node name="Collision Box" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nbdp6")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Run Area" type="Area2D" parent="."]
+
+[node name="Run Box" type="CollisionShape2D" parent="Run Area"]
+shape = SubResource("CircleShape2D_cs41v")
+
+[node name="Eat Area" type="Area2D" parent="."]
+
+[node name="Eat Box" type="CollisionShape2D" parent="Eat Area"]
+shape = SubResource("CircleShape2D_0og4x")
+
+[connection signal="body_entered" from="Run Area" to="." method="_on_run_area_body_entered"]
+[connection signal="body_exited" from="Run Area" to="." method="_on_run_area_body_exited"]
+[connection signal="body_entered" from="Eat Area" to="." method="_on_eat_area_body_entered"]

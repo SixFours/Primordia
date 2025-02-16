@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://6oyg0y0sd1mc"]
+[gd_scene load_steps=9 format=3 uid="uid://6oyg0y0sd1mc"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_1ii6d"]
 [ext_resource type="Texture2D" uid="uid://bp2rhq6e2a7dl" path="res://Assets/Virus/Virus_0013_Package-----------------.png" id="1_5jaks"]
@@ -42,10 +42,13 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_riep4"]
-radius = 762.129
+radius = 651.23
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jhl25"]
-radius = 50.0
+radius = 49.366
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ymst2"]
+radius = 40.05
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_1ii6d")
@@ -59,9 +62,9 @@ libraries = {
 }
 autoplay = "Idle"
 
-[node name="Follow Zone" type="Area2D" parent="."]
+[node name="Follow Area" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Follow Zone"]
+[node name="Follow Box" type="CollisionShape2D" parent="Follow Area"]
 shape = SubResource("CircleShape2D_riep4")
 
 [node name="Timer" type="Timer" parent="."]
@@ -69,12 +72,15 @@ autostart = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
-[node name="Kill Box" type="Area2D" parent="."]
+[node name="Kill Area" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill Box"]
+[node name="Kill Box" type="CollisionShape2D" parent="Kill Area"]
 shape = SubResource("CircleShape2D_jhl25")
 
-[connection signal="body_entered" from="Follow Zone" to="." method="_on_follow_zone_body_entered"]
-[connection signal="body_exited" from="Follow Zone" to="." method="_on_follow_zone_body_exited"]
+[node name="Collision Box" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ymst2")
+
+[connection signal="body_entered" from="Follow Area" to="." method="_on_follow_zone_body_entered"]
+[connection signal="body_exited" from="Follow Area" to="." method="_on_follow_zone_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="body_entered" from="Kill Box" to="." method="_on_kill_box_body_entered"]
+[connection signal="body_entered" from="Kill Area" to="." method="_on_kill_box_body_entered"]
