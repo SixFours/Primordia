@@ -6,11 +6,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_7py6b"]
 radius = 329.014
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_eforu"]
-radius = 49.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_2gnse"]
+radius = 26.1725
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_crbb3"]
-radius = 23.0217
+[sub_resource type="CircleShape2D" id="CircleShape2D_uvf55"]
+radius = 24.0208
 
 [node name="Enemy" instance=ExtResource("1_vi1am")]
 
@@ -22,7 +22,7 @@ texture = ExtResource("2_tokk4")
 shape = SubResource("CircleShape2D_7py6b")
 
 [node name="Kill Box" parent="Kill Area" index="0"]
-shape = SubResource("CircleShape2D_eforu")
+shape = SubResource("CircleShape2D_2gnse")
 
-[node name="Collision Box" parent="." index="5"]
-shape = SubResource("CircleShape2D_crbb3")
+[node name="CollisionBox" parent="." index="5"]
+shape = SubResource("CircleShape2D_uvf55")

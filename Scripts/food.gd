@@ -46,6 +46,7 @@ func _on_eat_area_body_entered(body: Node2D) -> void:
 		eaten = true  # Mark that we have been eaten, so can't be eaten again
 		visible = false  # Hide the food immediately
 		print("+1 Food!")
+		body.eat_food(0.1)
 		$EatSound.play()
 		call_deferred("queue_free_after_eat_sound")
 

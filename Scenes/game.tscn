@@ -116,13 +116,15 @@ speed = 200.0
 
 [node name="EnormousEnemy1" parent="Enemys" instance=ExtResource("7_3off7")]
 position = Vector2(4368, -2925)
-speed = 10.0
+speed = 20.0
 
 [node name="BigEnemy3" parent="Enemys" instance=ExtResource("4_x5u1h")]
 position = Vector2(5781, -3701)
+speed = 50.0
 
 [node name="BigEnemy4" parent="Enemys" instance=ExtResource("4_x5u1h")]
 position = Vector2(4467, -764)
+speed = 50.0
 
 [node name="Enemy7" parent="Enemys" instance=ExtResource("2_fpu0b")]
 position = Vector2(6451, 236)
@@ -141,9 +143,11 @@ position = Vector2(2311, -2814)
 
 [node name="SmallEnemy4" parent="Enemys" instance=ExtResource("5_x12jm")]
 position = Vector2(362, -4319)
+speed = 200.0
 
 [node name="SmallEnemy5" parent="Enemys" instance=ExtResource("5_x12jm")]
 position = Vector2(3264, -2787)
+speed = 200.0
 
 [node name="Enemy12" parent="Enemys" instance=ExtResource("2_fpu0b")]
 position = Vector2(1132, -3447)

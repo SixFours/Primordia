@@ -9,8 +9,8 @@ radius = 11845.9
 [sub_resource type="CircleShape2D" id="CircleShape2D_qi14x"]
 radius = 444.01
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0vj4o"]
-radius = 416.043
+[sub_resource type="CircleShape2D" id="CircleShape2D_vrhi0"]
+radius = 426.386
 
 [node name="Enemy" instance=ExtResource("1_4oeej")]
 
@@ -24,5 +24,5 @@ shape = SubResource("CircleShape2D_u26ed")
 [node name="Kill Box" parent="Kill Area" index="0"]
 shape = SubResource("CircleShape2D_qi14x")
 
-[node name="Collision Box" parent="." index="5"]
-shape = SubResource("CircleShape2D_0vj4o")
+[node name="CollisionBox" parent="." index="5"]
+shape = SubResource("CircleShape2D_vrhi0")
