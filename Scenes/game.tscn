@@ -1,111 +1,189 @@
-[gd_scene load_steps=12 format=3 uid="uid://1yimmlx1m30p"]
+[gd_scene load_steps=16 format=3 uid="uid://1yimmlx1m30p"]
 
+[ext_resource type="Texture2D" uid="uid://dpopcnyqinhlk" path="res://Assets/pixelcut-export.jpg" id="1_q22np"]
 [ext_resource type="PackedScene" uid="uid://d218sffoa4sy3" path="res://Scenes/player.tscn" id="1_rl7p1"]
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_ywbis"]
 [ext_resource type="PackedScene" uid="uid://6oyg0y0sd1mc" path="res://Scenes/enemy.tscn" id="2_fpu0b"]
-[ext_resource type="Texture2D" uid="uid://d3adm5mo4f6ss" path="res://Assets/360_F_154153098_8s3pQS0OC9b64NUe7Km3eQuWf5Epk9Bj.jpg" id="3_uoa54"]
 [ext_resource type="PackedScene" uid="uid://qyras31unr04" path="res://Scenes/enemy_big.tscn" id="4_x5u1h"]
 [ext_resource type="PackedScene" uid="uid://cucr6owph7suf" path="res://Scenes/enemy_small.tscn" id="5_x12jm"]
 [ext_resource type="PackedScene" uid="uid://c78u24n1pskx6" path="res://Scenes/food.tscn" id="6_yl3sp"]
+[ext_resource type="PackedScene" uid="uid://wefnkg66n5vp" path="res://Scenes/enemy_enormous.tscn" id="7_3off7"]
+[ext_resource type="AudioStream" uid="uid://burdg0ib74rms" path="res://Assets/MicroscopicSong.wav" id="9_h1doi"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vgyo4"]
-vertices = PackedVector2Array(2012.05, 1112.96, -1647.89, 1101.03, -1626.1, -990.039, 2023.94, -1005.95)
+vertices = PackedVector2Array(7366, 901.992, -1713.99, 900, -1712, -5065, 7366, -5068.99)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(2034, -1016, 2022, 1123, -1658, 1111, -1636, -1000)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(7376, -5079, 7376, 912, -1724, 910, -1722, -5075)])
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xud2k"]
-normal = Vector2(0, 1)
-distance = -1000.0
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qpx6m"]
+distance = 108.0
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hw5s6"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_v7dyb"]
 normal = Vector2(-1, 0)
-distance = -1959.0
+distance = 30.0
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rh2j0"]
-normal = Vector2(0.999922, 0.012499)
-distance = -1617.17
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bgcd6"]
+normal = Vector2(-0.00432896, 0.999991)
+distance = 175.99
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mob2n"]
-distance = -1101.0
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ut0xw"]
+normal = Vector2(1, 0)
+distance = 208.0
+
+[sub_resource type="GDScript" id="GDScript_6s5qi"]
+script/source = "extends AudioStreamPlayer
+"
 
 [node name="Game" type="Node2D"]
-position = Vector2(-26, -47)
+position = Vector2(-26, -48)
+script = ExtResource("1_ywbis")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(232.5, 63.9999)
-scale = Vector2(9.13519, 8.47778)
-texture = ExtResource("3_uoa54")
+position = Vector2(2838.5, -1965)
+scale = Vector2(8.43241, 8.32778)
+texture = ExtResource("1_q22np")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_rl7p1")]
 position = Vector2(105, -51)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-
-[node name="Enemy" parent="." instance=ExtResource("2_fpu0b")]
-position = Vector2(829, -39)
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-position = Vector2(0, -6)
+position = Vector2(14, 118)
 navigation_polygon = SubResource("NavigationPolygon_vgyo4")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(0, -6)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
+[node name="Borders" type="StaticBody2D" parent="Node2D"]
 position = Vector2(0, 6)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
-shape = SubResource("WorldBoundaryShape2D_xud2k")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Borders"]
+position = Vector2(102, 1117)
+shape = SubResource("WorldBoundaryShape2D_qpx6m")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
-position = Vector2(0, -6)
-shape = SubResource("WorldBoundaryShape2D_hw5s6")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/Borders"]
+position = Vector2(7408, -397)
+shape = SubResource("WorldBoundaryShape2D_v7dyb")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
-position = Vector2(0, -6)
-shape = SubResource("WorldBoundaryShape2D_rh2j0")
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Node2D/Borders"]
+position = Vector2(535, -5128)
+shape = SubResource("WorldBoundaryShape2D_bgcd6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
-position = Vector2(0, -6)
-shape = SubResource("WorldBoundaryShape2D_mob2n")
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Node2D/Borders"]
+position = Vector2(-1853, -64)
+shape = SubResource("WorldBoundaryShape2D_ut0xw")
 
-[node name="Enemy2" parent="." groups=["Enemies"] instance=ExtResource("2_fpu0b")]
-position = Vector2(-1181, 844)
+[node name="Enemys" type="Node" parent="."]
 
-[node name="Enemy3" parent="." groups=["Enemies"] instance=ExtResource("2_fpu0b")]
-position = Vector2(-1234, -784)
+[node name="Enemy6" parent="Enemys" instance=ExtResource("2_fpu0b")]
+position = Vector2(3434, -1562)
 
-[node name="Enemy4" parent="." groups=["Enemies"] instance=ExtResource("2_fpu0b")]
-position = Vector2(1831, 957)
+[node name="BigEnemy2" parent="Enemys" instance=ExtResource("4_x5u1h")]
+position = Vector2(1411, 447)
+speed = 50.0
 
-[node name="Enemy5" parent="." groups=["Enemies"] instance=ExtResource("2_fpu0b")]
-position = Vector2(1757, -799)
+[node name="SmallEnemy3" parent="Enemys" instance=ExtResource("5_x12jm")]
+position = Vector2(4624, -1565)
+speed = 200.0
 
-[node name="BigEnemy1" parent="." instance=ExtResource("4_x5u1h")]
-position = Vector2(-496, -921)
+[node name="Enemy" parent="Enemys" instance=ExtResource("2_fpu0b")]
+position = Vector2(1212, -255)
+
+[node name="Enemy2" parent="Enemys" groups=["Enemies"] instance=ExtResource("2_fpu0b")]
+position = Vector2(-1207, 797)
+
+[node name="Enemy3" parent="Enemys" groups=["Enemies"] instance=ExtResource("2_fpu0b")]
+position = Vector2(1819, -1546)
+
+[node name="Enemy4" parent="Enemys" groups=["Enemies"] instance=ExtResource("2_fpu0b")]
+position = Vector2(3347, -406)
+
+[node name="Enemy5" parent="Enemys" groups=["Enemies"] instance=ExtResource("2_fpu0b")]
+position = Vector2(4329, 350)
+
+[node name="BigEnemy1" parent="Enemys" instance=ExtResource("4_x5u1h")]
+position = Vector2(-178, -3663)
 collision_layer = 6
 collision_mask = 4
 speed = 50.0
 
-[node name="SmallEnemy1" parent="." instance=ExtResource("5_x12jm")]
-position = Vector2(-120, 696)
+[node name="SmallEnemy1" parent="Enemys" instance=ExtResource("5_x12jm")]
+position = Vector2(-146, 649)
+speed = 200.0
 
-[node name="SmallEnemy2" parent="." instance=ExtResource("5_x12jm")]
-position = Vector2(1072, -933)
+[node name="SmallEnemy2" parent="Enemys" instance=ExtResource("5_x12jm")]
+position = Vector2(1046, -980)
+speed = 200.0
 
-[node name="Food" parent="." instance=ExtResource("6_yl3sp")]
-position = Vector2(480, 790)
+[node name="EnormousEnemy1" parent="Enemys" instance=ExtResource("7_3off7")]
+position = Vector2(4368, -2925)
+speed = 10.0
 
-[node name="Food2" parent="." instance=ExtResource("6_yl3sp")]
-position = Vector2(1873, -150)
+[node name="BigEnemy3" parent="Enemys" instance=ExtResource("4_x5u1h")]
+position = Vector2(5781, -3701)
 
-[node name="Food3" parent="." instance=ExtResource("6_yl3sp")]
-position = Vector2(-1403, 601)
+[node name="BigEnemy4" parent="Enemys" instance=ExtResource("4_x5u1h")]
+position = Vector2(4467, -764)
 
-[node name="Food4" parent="." instance=ExtResource("6_yl3sp")]
-position = Vector2(-1430, -98)
+[node name="Enemy7" parent="Enemys" instance=ExtResource("2_fpu0b")]
+position = Vector2(6451, 236)
 
-[node name="Food5" parent="." instance=ExtResource("6_yl3sp")]
-position = Vector2(261, -895)
+[node name="Enemy8" parent="Enemys" instance=ExtResource("2_fpu0b")]
+position = Vector2(6318, -1591)
 
-[node name="Food6" parent="." instance=ExtResource("6_yl3sp")]
-position = Vector2(-412, 125)
+[node name="Enemy9" parent="Enemys" instance=ExtResource("2_fpu0b")]
+position = Vector2(-610, -2661)
+
+[node name="Enemy10" parent="Enemys" instance=ExtResource("2_fpu0b")]
+position = Vector2(2984, -4179)
+
+[node name="Enemy11" parent="Enemys" instance=ExtResource("2_fpu0b")]
+position = Vector2(2311, -2814)
+
+[node name="SmallEnemy4" parent="Enemys" instance=ExtResource("5_x12jm")]
+position = Vector2(362, -4319)
+
+[node name="SmallEnemy5" parent="Enemys" instance=ExtResource("5_x12jm")]
+position = Vector2(3264, -2787)
+
+[node name="Enemy12" parent="Enemys" instance=ExtResource("2_fpu0b")]
+position = Vector2(1132, -3447)
+
+[node name="Enemy13" parent="Enemys" instance=ExtResource("2_fpu0b")]
+position = Vector2(-1176, -4209)
+
+[node name="Enemy14" parent="Enemys" instance=ExtResource("2_fpu0b")]
+position = Vector2(5463, -2378)
+
+[node name="Enemy15" parent="Enemys" instance=ExtResource("2_fpu0b")]
+position = Vector2(3983, -3840)
+
+[node name="Food" type="Node" parent="."]
+
+[node name="Food" parent="Food" instance=ExtResource("6_yl3sp")]
+position = Vector2(700, 663)
+
+[node name="Food2" parent="Food" instance=ExtResource("6_yl3sp")]
+position = Vector2(1847, -197)
+
+[node name="Food3" parent="Food" instance=ExtResource("6_yl3sp")]
+position = Vector2(-214, 48)
+
+[node name="Food4" parent="Food" instance=ExtResource("6_yl3sp")]
+position = Vector2(-463, -1304)
+
+[node name="Food5" parent="Food" instance=ExtResource("6_yl3sp")]
+position = Vector2(737, -1993)
+
+[node name="Food6" parent="Food" instance=ExtResource("6_yl3sp")]
+position = Vector2(2536, -648)
+
+[node name="Food7" parent="Food" instance=ExtResource("6_yl3sp")]
+position = Vector2(-1397, -2156)
+
+[node name="Food8" parent="Food" instance=ExtResource("6_yl3sp")]
+position = Vector2(-1325, -142)
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_h1doi")
+autoplay = true
+script = SubResource("GDScript_6s5qi")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c78u24n1pskx6"]
+[gd_scene load_steps=7 format=3 uid="uid://c78u24n1pskx6"]
 
 [ext_resource type="Texture2D" uid="uid://t5ud81yhkdqx" path="res://Assets/Virus/Virus_0010_Package-----------------.png" id="1_cd6ub"]
 [ext_resource type="Script" path="res://Scripts/food.gd" id="1_eqlde"]
+[ext_resource type="AudioStream" uid="uid://be6tcsbr5y5m8" path="res://Assets/EatSound.wav" id="3_1krdv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nbdp6"]
 radius = 12.0
@@ -36,6 +37,9 @@ shape = SubResource("CircleShape2D_cs41v")
 
 [node name="Eat Box" type="CollisionShape2D" parent="Eat Area"]
 shape = SubResource("CircleShape2D_0og4x")
+
+[node name="EatSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1krdv")
 
 [connection signal="body_entered" from="Run Area" to="." method="_on_run_area_body_entered"]
 [connection signal="body_exited" from="Run Area" to="." method="_on_run_area_body_exited"]

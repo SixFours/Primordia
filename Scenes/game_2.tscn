@@ -1,0 +1,266 @@
+[gd_scene load_steps=13 format=3 uid="uid://btva880wmveo1"]
+
+[ext_resource type="Texture2D" uid="uid://dpopcnyqinhlk" path="res://Assets/pixelcut-export.jpg" id="1_dmaq1"]
+[ext_resource type="PackedScene" uid="uid://cucr6owph7suf" path="res://Scenes/enemy_small.tscn" id="2_8ot22"]
+[ext_resource type="PackedScene" uid="uid://6oyg0y0sd1mc" path="res://Scenes/enemy.tscn" id="3_h12ok"]
+[ext_resource type="PackedScene" uid="uid://qyras31unr04" path="res://Scenes/enemy_big.tscn" id="4_mx0jj"]
+[ext_resource type="PackedScene" uid="uid://wefnkg66n5vp" path="res://Scenes/enemy_enormous.tscn" id="5_m7y4l"]
+[ext_resource type="PackedScene" uid="uid://d218sffoa4sy3" path="res://Scenes/player.tscn" id="6_y5ykx"]
+[ext_resource type="PackedScene" uid="uid://c78u24n1pskx6" path="res://Scenes/food.tscn" id="7_w6yv3"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_tp3ja"]
+vertices = PackedVector2Array(15980, -10822, 15986, 10829, -15984, 10816, -15997, -10829)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(15996, 10839, 15990, -10832, -16007, -10839, -15994, 10826)])
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_c175m"]
+distance = 230.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6vkdv"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4xp0y"]
+distance = 21.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_74k8r"]
+distance = 31.0
+
+[node name="Game 2" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-7.62939e-06, 1)
+scale = Vector2(29.6639, 30.1451)
+texture = ExtResource("1_dmaq1")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_tp3ja")
+
+[node name="Borders" type="Area2D" parent="."]
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Borders"]
+position = Vector2(-1, 11042)
+shape = SubResource("WorldBoundaryShape2D_c175m")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Borders"]
+position = Vector2(-16005, 162)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_6vkdv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borders"]
+position = Vector2(-2, -10857)
+rotation = -3.14159
+shape = SubResource("WorldBoundaryShape2D_4xp0y")
+one_way_collision_margin = 127.6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders"]
+position = Vector2(16041, 5)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_74k8r")
+
+[node name="Enemies" type="Node2D" parent="."]
+position = Vector2(16041, 5)
+rotation = -1.5708
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("2_8ot22")]
+position = Vector2(-4505, -28078)
+rotation = 1.5708
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("2_8ot22")]
+position = Vector2(-1724, -18482)
+rotation = 1.5708
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("2_8ot22")]
+position = Vector2(2873, -12999)
+rotation = 1.5708
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource("2_8ot22")]
+position = Vector2(7388, -26868)
+rotation = 1.5708
+
+[node name="Enemy5" parent="Enemies" instance=ExtResource("3_h12ok")]
+position = Vector2(-4466, -2498)
+rotation = 1.5708
+
+[node name="Enemy6" parent="Enemies" instance=ExtResource("3_h12ok")]
+position = Vector2(-7909, -8509)
+rotation = 1.5708
+
+[node name="Enemy7" parent="Enemies" instance=ExtResource("3_h12ok")]
+position = Vector2(1424, -14972)
+rotation = 1.5708
+
+[node name="Enemy8" parent="Enemies" instance=ExtResource("3_h12ok")]
+position = Vector2(3750, -28141)
+rotation = 1.5708
+
+[node name="Enemy9" parent="Enemies" instance=ExtResource("3_h12ok")]
+position = Vector2(-5221, -24335)
+rotation = 1.5708
+
+[node name="Enemy10" parent="Enemies" instance=ExtResource("3_h12ok")]
+position = Vector2(2239, -23218)
+rotation = 1.5708
+
+[node name="Enemy11" parent="Enemies" instance=ExtResource("3_h12ok")]
+position = Vector2(5622, -11136)
+rotation = 1.5708
+
+[node name="Enemy12" parent="Enemies" instance=ExtResource("3_h12ok")]
+position = Vector2(6498, -24728)
+rotation = 1.5708
+
+[node name="Enemy13" parent="Enemies" instance=ExtResource("3_h12ok")]
+position = Vector2(-7788, -20348)
+rotation = 1.5708
+
+[node name="Enemy14" parent="Enemies" instance=ExtResource("3_h12ok")]
+position = Vector2(246, -8448)
+rotation = 1.5708
+
+[node name="Enemy15" parent="Enemies" instance=ExtResource("3_h12ok")]
+position = Vector2(6740, -3948)
+rotation = 1.5708
+
+[node name="Enemy16" parent="Enemies" instance=ExtResource("3_h12ok")]
+position = Vector2(-3952, -18536)
+rotation = 1.5708
+
+[node name="Enemy17" parent="Enemies" instance=ExtResource("2_8ot22")]
+position = Vector2(-6580, -14398)
+rotation = 1.5708
+
+[node name="Enemy18" parent="Enemies" instance=ExtResource("2_8ot22")]
+position = Vector2(397.001, -25453)
+rotation = 1.5708
+
+[node name="Enemy19" parent="Enemies" instance=ExtResource("2_8ot22")]
+position = Vector2(5743, -16905)
+rotation = 1.5708
+
+[node name="Enemy20" parent="Enemies" instance=ExtResource("2_8ot22")]
+position = Vector2(-932, -4280)
+rotation = 1.5708
+
+[node name="Enemy21" parent="Enemies" instance=ExtResource("2_8ot22")]
+position = Vector2(-8362, -11378)
+rotation = 1.5708
+
+[node name="Enemy22" parent="Enemies" instance=ExtResource("4_mx0jj")]
+position = Vector2(-2593, -25441)
+rotation = 1.5708
+
+[node name="Enemy23" parent="Enemies" instance=ExtResource("4_mx0jj")]
+position = Vector2(3354, -10076)
+rotation = 1.5708
+
+[node name="Enemy24" parent="Enemies" instance=ExtResource("4_mx0jj")]
+position = Vector2(-8890, -14624)
+rotation = 1.5708
+
+[node name="Enemy25" parent="Enemies" instance=ExtResource("4_mx0jj")]
+position = Vector2(5802, -28616)
+rotation = 1.5708
+
+[node name="Enemy26" parent="Enemies" instance=ExtResource("5_m7y4l")]
+position = Vector2(-3650, -9674)
+rotation = 1.5708
+
+[node name="Player" parent="." instance=ExtResource("6_y5ykx")]
+position = Vector2(2141, 1068)
+
+[node name="Food" type="Node" parent="."]
+
+[node name="Food1" parent="Food" instance=ExtResource("7_w6yv3")]
+position = Vector2(14564, -833)
+
+[node name="Food2" parent="Food" instance=ExtResource("7_w6yv3")]
+position = Vector2(1916, 4196)
+
+[node name="Food3" parent="Food" instance=ExtResource("7_w6yv3")]
+position = Vector2(9789, 1961)
+
+[node name="Food4" parent="Food" instance=ExtResource("7_w6yv3")]
+position = Vector2(11283, 8711)
+
+[node name="Food5" parent="Food" instance=ExtResource("7_w6yv3")]
+position = Vector2(4700, 6390)
+
+[node name="Food6" parent="Food" instance=ExtResource("7_w6yv3")]
+position = Vector2(8962, -3885)
+
+[node name="Food7" parent="Food" instance=ExtResource("7_w6yv3")]
+position = Vector2(-3824, -4608)
+
+[node name="Food8" parent="Food" instance=ExtResource("7_w6yv3")]
+position = Vector2(-7133, 2963)
+
+[node name="Food9" parent="Food" instance=ExtResource("7_w6yv3")]
+position = Vector2(-7279, 7655)
+
+[node name="Food10" parent="Food" instance=ExtResource("7_w6yv3")]
+position = Vector2(-12198, -1094)
+
+[node name="Food11" parent="Food" instance=ExtResource("7_w6yv3")]
+position = Vector2(6509, -7625)
+
+[node name="Enemy" parent="." instance=ExtResource("5_m7y4l")]
+position = Vector2(-10374, -5529)
+
+[node name="Enemy2" parent="." instance=ExtResource("4_mx0jj")]
+position = Vector2(1639, -8048)
+
+[node name="Enemy3" parent="." instance=ExtResource("4_mx0jj")]
+position = Vector2(-13597, 8657)
+
+[node name="Enemy4" parent="." instance=ExtResource("2_8ot22")]
+position = Vector2(-6649, 9597)
+
+[node name="Enemy5" parent="." instance=ExtResource("2_8ot22")]
+position = Vector2(-9529, 7459)
+
+[node name="Food2" parent="." instance=ExtResource("7_w6yv3")]
+position = Vector2(-12950, 2441)
+
+[node name="Enemy6" parent="." instance=ExtResource("3_h12ok")]
+position = Vector2(-10726, 6461)
+
+[node name="Enemy7" parent="." instance=ExtResource("3_h12ok")]
+position = Vector2(-14147, 6518)
+
+[node name="Enemy8" parent="." instance=ExtResource("3_h12ok")]
+position = Vector2(9857, 5919)
+
+[node name="Enemy9" parent="." instance=ExtResource("3_h12ok")]
+position = Vector2(10832, -1872)
+
+[node name="Enemy10" parent="." instance=ExtResource("3_h12ok")]
+position = Vector2(8174, -6577)
+
+[node name="Enemy11" parent="." instance=ExtResource("3_h12ok")]
+position = Vector2(13741, -3704)
+
+[node name="Enemy12" parent="." instance=ExtResource("3_h12ok")]
+position = Vector2(-14886, -1261)
+
+[node name="Enemy13" parent="." instance=ExtResource("3_h12ok")]
+position = Vector2(-5439, -7727)
+
+[node name="Enemy14" parent="." instance=ExtResource("2_8ot22")]
+position = Vector2(-6840, -4566)
+
+[node name="Enemy15" parent="." instance=ExtResource("2_8ot22")]
+position = Vector2(-10001, -2590)
+
+[node name="Enemy16" parent="." instance=ExtResource("2_8ot22")]
+position = Vector2(13921, -7439)
+
+[node name="Enemy17" parent="." instance=ExtResource("2_8ot22")]
+position = Vector2(8461, -9379)
+
+[node name="Enemy18" parent="." instance=ExtResource("2_8ot22")]
+position = Vector2(-9965, 9299)
+
+[node name="Enemy19" parent="." instance=ExtResource("2_8ot22")]
+position = Vector2(-1668, 6317)
+
+[node name="Enemy20" parent="." instance=ExtResource("2_8ot22")]
+position = Vector2(13670, 6892)

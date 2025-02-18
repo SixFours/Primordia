@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://d218sffoa4sy3"]
 
-[ext_resource type="Script" path="res://Scenes/character_body_2d.gd" id="1_2h7dc"]
+[ext_resource type="Script" path="res://Scripts/character_body_2d.gd" id="1_2h7dc"]
 [ext_resource type="Texture2D" uid="uid://dck1m6k2tbv8p" path="res://Assets/Virus/Virus_0000_Package-----------------.png" id="2_tk5sx"]
 
 [sub_resource type="Animation" id="Animation_inecf"]
@@ -58,3 +58,5 @@ autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_u4pcf")
+
+[node name="Camera2D" type="Camera2D" parent="."]

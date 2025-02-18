@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: float = 200.0
+@export var speed: float = 100.0
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var player: Node2D = null
 
@@ -33,7 +33,5 @@ func _on_timer_timeout() -> void:
 	update_path()  # Update path every second
 
 func _on_kill_box_body_entered(body: Node2D) -> void:
-	print("Something hit enemy...")
 	if body.is_in_group("Player"):
 		get_tree().reload_current_scene()
-		print("Player killed by enemy")

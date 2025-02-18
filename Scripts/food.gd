@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var area: Area2D = $Area2D  # The Area2D node where the detection will happen
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var player: Node2D = null
+var eaten = false  # Track if the item is already consumed
 
 func _process(delta: float) -> void:
 	if player:
@@ -37,17 +38,24 @@ func update_path():
 func stop_fleeing():
 	velocity = Vector2.ZERO  # Stop moving when the player leaves the area
 
-func _on_eat_area_body_entered(body: Node2D) -> void:
-	print("Something is near the food")
+func _on_eat_area_body_entered(body: Node2D) -> void:		
+	if eaten:
+		return  # Don't do anything if we are already eaten
+			
 	if body.is_in_group("Player"):
+		eaten = true  # Mark that we have been eaten, so can't be eaten again
+		visible = false  # Hide the food immediately
 		print("+1 Food!")
-		queue_free()
+		$EatSound.play()
+		call_deferred("queue_free_after_eat_sound")
 
+func queue_free_after_eat_sound():
+	await $EatSound.finished
+	queue_free()
+	
 
 func _on_run_area_body_entered(body: Node2D) -> void:
-	print("Something entered food run area")
 	if body.is_in_group("Player"):
-		print("It was a player!")
 		player = body
 		update_path()		
 
