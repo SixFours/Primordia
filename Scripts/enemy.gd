@@ -20,8 +20,6 @@ func _process(delta):
 func update_path():
 	if player:
 		if is_bigger_than_me(player):
-			if chase_player:
-				print("Now I'm scared! Running away!")
 			chase_player = false
 		else:
 			chase_player = true
@@ -67,12 +65,12 @@ func _on_kill_box_body_entered(body: Node2D) -> void:
 		if is_bigger_than_me(body):
 			eaten = true  # Mark that we have been eaten, so can't be eaten again
 			visible = false  # Hide the food immediately
-			print("+1 Food!")
+			print("+2 Food!")
 			body.eat_food(0.2)
 			$EatSound.play()
 			call_deferred("queue_free_after_eat_sound")
 		else:
-			print("Enemy was bigger than you! Now you dead")
+			print("Enemy was bigger than you! Now you are dead!")
 			get_tree().reload_current_scene()
 
 func queue_free_after_eat_sound():

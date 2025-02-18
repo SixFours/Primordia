@@ -46,10 +46,10 @@ _data = {
 radius = 529.417
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jhl25"]
-radius = 52.0
+radius = 57.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ymst2"]
-radius = 47.0106
+radius = 52.0096
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_1ii6d")

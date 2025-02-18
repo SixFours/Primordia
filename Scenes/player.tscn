@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://d218sffoa4sy3"]
+[gd_scene load_steps=8 format=3 uid="uid://d218sffoa4sy3"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_2h7dc"]
 [ext_resource type="Texture2D" uid="uid://dck1m6k2tbv8p" path="res://Assets/Virus/Virus_0000_Package-----------------.png" id="2_tk5sx"]
+[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="3_uahpr"]
 
 [sub_resource type="Animation" id="Animation_inecf"]
 resource_name = "Idle"
@@ -60,3 +61,4 @@ autoplay = "Idle"
 shape = SubResource("CircleShape2D_u4pcf")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_uahpr")

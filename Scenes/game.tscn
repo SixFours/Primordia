@@ -10,10 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://wefnkg66n5vp" path="res://Scenes/enemy_enormous.tscn" id="7_3off7"]
 [ext_resource type="AudioStream" uid="uid://burdg0ib74rms" path="res://Assets/MicroscopicSong.wav" id="9_h1doi"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_vgyo4"]
-vertices = PackedVector2Array(7366, 901.992, -1713.99, 900, -1712, -5065, 7366, -5068.99)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(7376, -5079, 7376, 912, -1724, 910, -1722, -5075)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_twwnd"]
+vertices = PackedVector2Array(7300.01, -4926.69, 7333.96, 796.852, 7196.62, 866, -1640.91, 868.992, -1707.97, 739.602, -1659.04, -4912.04, -1525.57, -5015, 7223.95, -5029.99)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1647, 879, 7199, 876, 7344, 803, 7310, -4930, 7229, -5040, -1529, -5025, -1669, -4917, -1718, 742)])
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qpx6m"]
 distance = 108.0
@@ -48,7 +48,7 @@ position = Vector2(105, -51)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(14, 118)
-navigation_polygon = SubResource("NavigationPolygon_vgyo4")
+navigation_polygon = SubResource("NavigationPolygon_twwnd")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(0, -6)
@@ -116,7 +116,7 @@ speed = 200.0
 
 [node name="EnormousEnemy1" parent="Enemys" instance=ExtResource("7_3off7")]
 position = Vector2(4368, -2925)
-speed = 20.0
+speed = 50.0
 
 [node name="BigEnemy3" parent="Enemys" instance=ExtResource("4_x5u1h")]
 position = Vector2(5781, -3701)
@@ -161,6 +161,48 @@ position = Vector2(5463, -2378)
 [node name="Enemy15" parent="Enemys" instance=ExtResource("2_fpu0b")]
 position = Vector2(3983, -3840)
 
+[node name="Enemy16" parent="Enemys" instance=ExtResource("4_x5u1h")]
+position = Vector2(1906, -3820)
+speed = 50.0
+
+[node name="Enemy17" parent="Enemys" instance=ExtResource("2_fpu0b")]
+position = Vector2(6947, -2462)
+
+[node name="Enemy18" parent="Enemys" instance=ExtResource("2_fpu0b")]
+position = Vector2(6047, -642)
+
+[node name="Enemy19" parent="Enemys" instance=ExtResource("2_fpu0b")]
+position = Vector2(5379, 551)
+
+[node name="SmallEnemy6" parent="Enemys" instance=ExtResource("5_x12jm")]
+position = Vector2(3160, 513)
+speed = 200.0
+
+[node name="Enemy20" parent="Enemys" instance=ExtResource("5_x12jm")]
+position = Vector2(2588, -1891)
+speed = 200.0
+
+[node name="Enemy21" parent="Enemys" instance=ExtResource("5_x12jm")]
+position = Vector2(4075, -2286)
+speed = 200.0
+
+[node name="Enemy22" parent="Enemys" instance=ExtResource("5_x12jm")]
+position = Vector2(537, -2724)
+speed = 200.0
+
+[node name="Enemy23" parent="Enemys" instance=ExtResource("4_x5u1h")]
+position = Vector2(-1009, -1198)
+speed = 50.0
+
+[node name="Enemy24" parent="Enemys" instance=ExtResource("2_fpu0b")]
+position = Vector2(391, -1277)
+
+[node name="Enemy25" parent="Enemys" instance=ExtResource("2_fpu0b")]
+position = Vector2(6862, -719)
+
+[node name="Enemy26" parent="Enemys" instance=ExtResource("2_fpu0b")]
+position = Vector2(7010, 694)
+
 [node name="Food" type="Node" parent="."]
 
 [node name="Food" parent="Food" instance=ExtResource("6_yl3sp")]
@@ -186,6 +228,15 @@ position = Vector2(-1397, -2156)
 
 [node name="Food8" parent="Food" instance=ExtResource("6_yl3sp")]
 position = Vector2(-1325, -142)
+
+[node name="Food9" parent="Food" instance=ExtResource("6_yl3sp")]
+position = Vector2(411, -287)
+
+[node name="Food10" parent="Food" instance=ExtResource("6_yl3sp")]
+position = Vector2(278, 89)
+
+[node name="Food11" parent="Food" instance=ExtResource("6_yl3sp")]
+position = Vector2(-173, -199)
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_h1doi")
