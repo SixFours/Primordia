@@ -1,34 +1,23 @@
-[gd_scene load_steps=16 format=3 uid="uid://1yimmlx1m30p"]
+[gd_scene load_steps=14 format=3 uid="uid://1yimmlx1m30p"]
 
-[ext_resource type="Texture2D" uid="uid://dpopcnyqinhlk" path="res://Assets/pixelcut-export.jpg" id="1_q22np"]
 [ext_resource type="PackedScene" uid="uid://d218sffoa4sy3" path="res://Scenes/player.tscn" id="1_rl7p1"]
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_ywbis"]
 [ext_resource type="PackedScene" uid="uid://6oyg0y0sd1mc" path="res://Scenes/enemy.tscn" id="2_fpu0b"]
+[ext_resource type="Texture2D" uid="uid://cqx4m8cix522n" path="res://Assets/pixelcut-export-modified.png" id="3_a8bap"]
 [ext_resource type="PackedScene" uid="uid://qyras31unr04" path="res://Scenes/enemy_big.tscn" id="4_x5u1h"]
 [ext_resource type="PackedScene" uid="uid://cucr6owph7suf" path="res://Scenes/enemy_small.tscn" id="5_x12jm"]
 [ext_resource type="PackedScene" uid="uid://c78u24n1pskx6" path="res://Scenes/food.tscn" id="6_yl3sp"]
 [ext_resource type="PackedScene" uid="uid://wefnkg66n5vp" path="res://Scenes/enemy_enormous.tscn" id="7_3off7"]
+[ext_resource type="PackedScene" uid="uid://pn5dyfo2lj13" path="res://Scenes/enemy_Strong.tscn" id="8_aixpu"]
 [ext_resource type="AudioStream" uid="uid://burdg0ib74rms" path="res://Assets/MicroscopicSong.wav" id="9_h1doi"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_twwnd"]
-vertices = PackedVector2Array(7300.01, -4926.69, 7333.96, 796.852, 7196.62, 866, -1640.91, 868.992, -1707.97, 739.602, -1659.04, -4912.04, -1525.57, -5015, 7223.95, -5029.99)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1647, 879, 7199, 876, 7344, 803, 7310, -4930, 7229, -5040, -1529, -5025, -1669, -4917, -1718, 742)])
+[sub_resource type="CircleShape2D" id="CircleShape2D_1uokx"]
+radius = 5885.02
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qpx6m"]
-distance = 108.0
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_v7dyb"]
-normal = Vector2(-1, 0)
-distance = 30.0
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bgcd6"]
-normal = Vector2(-0.00432896, 0.999991)
-distance = 175.99
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ut0xw"]
-normal = Vector2(1, 0)
-distance = 208.0
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_lpw55"]
+vertices = PackedVector2Array(4031.09, -7689.36, 5916.42, -6902.22, 7462.16, -5470.7, 8448.02, -3382.5, 8604.75, -1602.69, 8173.06, 68.3125, 7510.59, 1227.02, 6362.78, 2392.26, 4652.88, 3331.41, 2824.8, 3603.26, 2249.22, 3577.93, 1365.05, 3443.14, 322.227, 3058.56, -814.008, 2363.86, -1753.8, 1392.74, -2493.55, 218.547, -2936.27, -2074.16, -2743.68, -3855.66, -1855.08, -5559.41, -633.219, -6641.94, 772.148, -7403.1, 2360.82, -7771.66)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2825.32, 3613.3, 4656.11, 3341.04, 6368.89, 2400.31, 7518.64, 1233.11, 8182.41, 72.1095, 8614.87, -1601.86, 8457.83, -3385.17, 7470.38, -5476.74, 5921.9, -6910.77, 4033.33, -7699.26, 2359.94, -7781.72, 768.588, -7412.54, -638.99, -6650.19, -1863.11, -5565.66, -2753.43, -3858.63, -2946.38, -2073.74, -2503.02, 222.287, -1761.71, 1398.96, -820.315, 2371.72, 317.834, 3067.6, 1362.58, 3452.89, 2248.2, 3587.9)])
 
 [sub_resource type="GDScript" id="GDScript_6s5qi"]
 script/source = "extends AudioStreamPlayer
@@ -38,39 +27,35 @@ script/source = "extends AudioStreamPlayer
 position = Vector2(-26, -48)
 script = ExtResource("1_ywbis")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Border" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Border"]
 position = Vector2(2838.5, -1965)
-scale = Vector2(8.43241, 8.32778)
-texture = ExtResource("1_q22np")
+scale = Vector2(20.248, 20)
+texture = ExtResource("3_a8bap")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Border"]
+position = Vector2(-26, -1)
+build_mode = 1
+polygon = PackedVector2Array(2874, 3763, 4174, 3614, 5642, 3054, 7032, 1965, 7868, 859, 8418, -423, 8631, -1846, 8275, -4012, 6478, -6456, 4225, -7532, 2351, -7675, 826, -7283, -471, -6648, -1690, -5501, -2503, -4225, -2873, -2978, -2987, -1745, -2638, 23, -2182, 785, -1441, 1869, -600, 2653, 412, 3237, 997, 3487, 1881, 3686)
+one_way_collision = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border"]
+position = Vector2(2809, -1946)
+shape = SubResource("CircleShape2D_1uokx")
+one_way_collision = true
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(14, 118)
+rotation = 0.00450862
+scale = Vector2(1, 1)
+navigation_polygon = SubResource("NavigationPolygon_lpw55")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_rl7p1")]
 position = Vector2(105, -51)
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-position = Vector2(14, 118)
-navigation_polygon = SubResource("NavigationPolygon_twwnd")
-
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(0, -6)
-
-[node name="Borders" type="StaticBody2D" parent="Node2D"]
-position = Vector2(0, 6)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Borders"]
-position = Vector2(102, 1117)
-shape = SubResource("WorldBoundaryShape2D_qpx6m")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/Borders"]
-position = Vector2(7408, -397)
-shape = SubResource("WorldBoundaryShape2D_v7dyb")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Node2D/Borders"]
-position = Vector2(535, -5128)
-shape = SubResource("WorldBoundaryShape2D_bgcd6")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Node2D/Borders"]
-position = Vector2(-1853, -64)
-shape = SubResource("WorldBoundaryShape2D_ut0xw")
 
 [node name="Enemys" type="Node" parent="."]
 
@@ -116,7 +101,7 @@ speed = 200.0
 
 [node name="EnormousEnemy1" parent="Enemys" instance=ExtResource("7_3off7")]
 position = Vector2(4368, -2925)
-speed = 50.0
+speed = 70.0
 
 [node name="BigEnemy3" parent="Enemys" instance=ExtResource("4_x5u1h")]
 position = Vector2(5781, -3701)
@@ -202,6 +187,64 @@ position = Vector2(6862, -719)
 
 [node name="Enemy26" parent="Enemys" instance=ExtResource("2_fpu0b")]
 position = Vector2(7010, 694)
+
+[node name="StrongEnemy3" parent="Enemys" instance=ExtResource("8_aixpu")]
+position = Vector2(4683, -2107)
+speed = 200.0
+
+[node name="StrongEnemy4" parent="Enemys" instance=ExtResource("8_aixpu")]
+position = Vector2(-1431, -3391)
+speed = 200.0
+
+[node name="StrongEnemy5" parent="Enemys" instance=ExtResource("8_aixpu")]
+position = Vector2(5360, 2080)
+speed = 200.0
+
+[node name="StrongEnemy6" parent="Enemys" instance=ExtResource("8_aixpu")]
+position = Vector2(7080, -3495)
+speed = 200.0
+
+[node name="StrongEnemy" parent="Enemys" instance=ExtResource("8_aixpu")]
+position = Vector2(4070, -4581)
+speed = 200.0
+
+[node name="StrongEnemy2" parent="Enemys" instance=ExtResource("8_aixpu")]
+position = Vector2(-1492, 550)
+speed = 200.0
+
+[node name="Enemy27" parent="Enemys" instance=ExtResource("2_fpu0b")]
+position = Vector2(4212, 1810)
+
+[node name="Enemy28" parent="Enemys" instance=ExtResource("2_fpu0b")]
+position = Vector2(1266, 3258)
+
+[node name="Enemy29" parent="Enemys" instance=ExtResource("2_fpu0b")]
+position = Vector2(2663, 1759)
+
+[node name="Enemy30" parent="Enemys" instance=ExtResource("2_fpu0b")]
+position = Vector2(4047, 3004)
+
+[node name="Enemy31" parent="Enemys" instance=ExtResource("2_fpu0b")]
+position = Vector2(41, 2058)
+
+[node name="Enemy32" parent="Enemys" instance=ExtResource("4_x5u1h")]
+position = Vector2(2836, 2867)
+speed = 50.0
+
+[node name="Enemy33" parent="Enemys" instance=ExtResource("5_x12jm")]
+position = Vector2(6289, 1504)
+rotation = 0.0336353
+speed = 200.0
+
+[node name="Enemy34" parent="Enemys" instance=ExtResource("5_x12jm")]
+position = Vector2(-948, 2179)
+rotation = 0.0336353
+speed = 200.0
+
+[node name="Enemy35" parent="Enemys" instance=ExtResource("5_x12jm")]
+position = Vector2(1713, 2512)
+rotation = 0.0336353
+speed = 200.0
 
 [node name="Food" type="Node" parent="."]
 

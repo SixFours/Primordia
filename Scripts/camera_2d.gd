@@ -1,7 +1,7 @@
 extends Camera2D
 
 @export var zoom_speed: float = 0.1
-@export var min_zoom: float = 0.5
+@export var min_zoom: float = 0.2
 @export var max_zoom: float = 5
 
 func _process(delta):
