@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://1yimmlx1m30p"]
+[gd_scene load_steps=15 format=3 uid="uid://1yimmlx1m30p"]
 
 [ext_resource type="PackedScene" uid="uid://d218sffoa4sy3" path="res://Scenes/player.tscn" id="1_rl7p1"]
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_ywbis"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://pn5dyfo2lj13" path="res://Scenes/enemy_Strong.tscn" id="8_aixpu"]
 [ext_resource type="AudioStream" uid="uid://burdg0ib74rms" path="res://Assets/MicroscopicSong.wav" id="9_h1doi"]
 [ext_resource type="Script" path="res://Scripts/music.gd" id="11_oce8p"]
+[ext_resource type="PackedScene" uid="uid://wk1isgvaqx2x" path="res://Scenes/dirt_clump.tscn" id="12_ftsph"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1uokx"]
 radius = 5885.02
@@ -21,7 +22,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 
 outlines = Array[PackedVector2Array]([PackedVector2Array(2825.32, 3613.3, 4656.11, 3341.04, 6368.89, 2400.31, 7518.64, 1233.11, 8182.41, 72.1095, 8614.87, -1601.86, 8457.83, -3385.17, 7470.38, -5476.74, 5921.9, -6910.77, 4033.33, -7699.26, 2359.94, -7781.72, 768.588, -7412.54, -638.99, -6650.19, -1863.11, -5565.66, -2753.43, -3858.63, -2946.38, -2073.74, -2503.02, 222.287, -1761.71, 1398.96, -820.315, 2371.72, 317.834, 3067.6, 1362.58, 3452.89, 2248.2, 3587.9)])
 
 [node name="Game" type="Node2D"]
-position = Vector2(-26, -48)
+position = Vector2(-230, -71)
 script = ExtResource("1_ywbis")
 
 [node name="Border" type="StaticBody2D" parent="."]
@@ -285,3 +286,59 @@ position = Vector2(-173, -199)
 stream = ExtResource("9_h1doi")
 autoplay = true
 script = ExtResource("11_oce8p")
+
+[node name="Dirt Clumps" type="Node2D" parent="."]
+
+[node name="Dirt Clump" parent="Dirt Clumps" instance=ExtResource("12_ftsph")]
+position = Vector2(4420.25, -5608.25)
+scale = Vector2(1.45814, 1.43659)
+
+[node name="Dirt Clump2" parent="Dirt Clumps" instance=ExtResource("12_ftsph")]
+position = Vector2(6176, -3032)
+rotation = 0.622236
+scale = Vector2(2.22093, 2.50976)
+
+[node name="Dirt Clump3" parent="Dirt Clumps" instance=ExtResource("12_ftsph")]
+position = Vector2(1415, -2103)
+rotation = -0.366004
+scale = Vector2(1.50437, 1.11916)
+
+[node name="Dirt Clump4" parent="Dirt Clumps" instance=ExtResource("12_ftsph")]
+position = Vector2(3541.25, 1447.75)
+scale = Vector2(1.83023, 1.79756)
+
+[node name="Dirt Clump5" parent="Dirt Clumps" instance=ExtResource("12_ftsph")]
+position = Vector2(-5, -5188)
+
+[node name="Dirt Clump6" parent="Dirt Clumps" instance=ExtResource("12_ftsph")]
+position = Vector2(-220, 1485)
+scale = Vector2(2.61628, 2.6561)
+
+[node name="Dirt Clump7" parent="Dirt Clumps" instance=ExtResource("12_ftsph")]
+position = Vector2(2118, 412)
+rotation = -0.203707
+
+[node name="Dirt Clump8" parent="Dirt Clumps" instance=ExtResource("12_ftsph")]
+position = Vector2(2689, -1101)
+rotation = 0.162528
+scale = Vector2(1.27892, 1.77363)
+
+[node name="Dirt Clump9" parent="Dirt Clumps" instance=ExtResource("12_ftsph")]
+position = Vector2(7798, -1432)
+rotation = -0.382615
+scale = Vector2(3.57325, 4.132)
+
+[node name="Dirt Clump10" parent="Dirt Clumps" instance=ExtResource("12_ftsph")]
+position = Vector2(2392, -6386)
+rotation = 0.410021
+scale = Vector2(4.38968, 4.69582)
+
+[node name="Dirt Clump11" parent="Dirt Clumps" instance=ExtResource("12_ftsph")]
+position = Vector2(-2202, -1982)
+scale = Vector2(1.2814, 1)
+
+[node name="Dirt Clump12" parent="Dirt Clumps" instance=ExtResource("12_ftsph")]
+position = Vector2(2860, -3345)
+
+[node name="Dirt Clump13" parent="Dirt Clumps" instance=ExtResource("12_ftsph")]
+position = Vector2(1888, 3422)
