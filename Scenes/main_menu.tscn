@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjcdtcn0pymn3"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_mkc3u"]
+[ext_resource type="Texture2D" uid="uid://dpopcnyqinhlk" path="res://Assets/pixelcut-export.jpg" id="2_qbsvb"]
+[ext_resource type="AudioStream" uid="uid://c1tkhsi1dwua2" path="res://Assets/MenuMusic.wav" id="2_ss1v2"]
+[ext_resource type="Script" path="res://Scripts/menu_music.gd" id="3_aqai7"]
+[ext_resource type="Texture2D" uid="uid://y780y5bqdi60" path="res://icon.svg" id="5_pawjd"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_mkc3u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.500045, -8.50001)
+scale = Vector2(1.03981, 0.870833)
+texture = ExtResource("2_qbsvb")
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -24.0
+offset_right = 21.0
+offset_bottom = 7.0
+text = "Play"
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -18.0
+offset_top = 29.0
+offset_right = 19.0
+offset_bottom = 60.0
+text = "Exit"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = -68.0
+offset_top = -105.0
+offset_right = 66.0
+offset_bottom = -41.0
+text = "   Microscopic
+the game of life"
+editable = false
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ss1v2")
+autoplay = true
+script = ExtResource("3_aqai7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-174, 90)
+scale = Vector2(0.1875, 0.183594)
+texture = ExtResource("5_pawjd")

@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://wefnkg66n5vp" path="res://Scenes/enemy_enormous.tscn" id="7_3off7"]
 [ext_resource type="PackedScene" uid="uid://pn5dyfo2lj13" path="res://Scenes/enemy_Strong.tscn" id="8_aixpu"]
 [ext_resource type="AudioStream" uid="uid://burdg0ib74rms" path="res://Assets/MicroscopicSong.wav" id="9_h1doi"]
+[ext_resource type="Script" path="res://Scripts/music.gd" id="11_oce8p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1uokx"]
 radius = 5885.02
@@ -18,10 +19,6 @@ radius = 5885.02
 vertices = PackedVector2Array(4031.09, -7689.36, 5916.42, -6902.22, 7462.16, -5470.7, 8448.02, -3382.5, 8604.75, -1602.69, 8173.06, 68.3125, 7510.59, 1227.02, 6362.78, 2392.26, 4652.88, 3331.41, 2824.8, 3603.26, 2249.22, 3577.93, 1365.05, 3443.14, 322.227, 3058.56, -814.008, 2363.86, -1753.8, 1392.74, -2493.55, 218.547, -2936.27, -2074.16, -2743.68, -3855.66, -1855.08, -5559.41, -633.219, -6641.94, 772.148, -7403.1, 2360.82, -7771.66)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(2825.32, 3613.3, 4656.11, 3341.04, 6368.89, 2400.31, 7518.64, 1233.11, 8182.41, 72.1095, 8614.87, -1601.86, 8457.83, -3385.17, 7470.38, -5476.74, 5921.9, -6910.77, 4033.33, -7699.26, 2359.94, -7781.72, 768.588, -7412.54, -638.99, -6650.19, -1863.11, -5565.66, -2753.43, -3858.63, -2946.38, -2073.74, -2503.02, 222.287, -1761.71, 1398.96, -820.315, 2371.72, 317.834, 3067.6, 1362.58, 3452.89, 2248.2, 3587.9)])
-
-[sub_resource type="GDScript" id="GDScript_6s5qi"]
-script/source = "extends AudioStreamPlayer
-"
 
 [node name="Game" type="Node2D"]
 position = Vector2(-26, -48)
@@ -48,203 +45,206 @@ one_way_collision = true
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(14, 118)
 rotation = 0.00450862
-scale = Vector2(1, 1)
 navigation_polygon = SubResource("NavigationPolygon_lpw55")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_rl7p1")]
 position = Vector2(105, -51)
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(0, -6)
-
 [node name="Enemys" type="Node" parent="."]
 
-[node name="Enemy6" parent="Enemys" instance=ExtResource("2_fpu0b")]
+[node name="Enemy Normal" type="Node" parent="Enemys"]
+
+[node name="Enemy6" parent="Enemys/Enemy Normal" instance=ExtResource("2_fpu0b")]
 position = Vector2(3434, -1562)
 
-[node name="BigEnemy2" parent="Enemys" instance=ExtResource("4_x5u1h")]
-position = Vector2(1411, 447)
-speed = 50.0
+[node name="Enemy" parent="Enemys/Enemy Normal" instance=ExtResource("2_fpu0b")]
+position = Vector2(1212, -255)
 
-[node name="SmallEnemy3" parent="Enemys" instance=ExtResource("5_x12jm")]
+[node name="Enemy2" parent="Enemys/Enemy Normal" groups=["Enemies"] instance=ExtResource("2_fpu0b")]
+position = Vector2(-1207, 797)
+
+[node name="Enemy3" parent="Enemys/Enemy Normal" groups=["Enemies"] instance=ExtResource("2_fpu0b")]
+position = Vector2(1819, -1546)
+
+[node name="Enemy4" parent="Enemys/Enemy Normal" groups=["Enemies"] instance=ExtResource("2_fpu0b")]
+position = Vector2(3347, -406)
+
+[node name="Enemy5" parent="Enemys/Enemy Normal" groups=["Enemies"] instance=ExtResource("2_fpu0b")]
+position = Vector2(4329, 350)
+
+[node name="Enemy7" parent="Enemys/Enemy Normal" instance=ExtResource("2_fpu0b")]
+position = Vector2(6451, 236)
+
+[node name="Enemy8" parent="Enemys/Enemy Normal" instance=ExtResource("2_fpu0b")]
+position = Vector2(6318, -1591)
+
+[node name="Enemy9" parent="Enemys/Enemy Normal" instance=ExtResource("2_fpu0b")]
+position = Vector2(-610, -2661)
+
+[node name="Enemy10" parent="Enemys/Enemy Normal" instance=ExtResource("2_fpu0b")]
+position = Vector2(2984, -4179)
+
+[node name="Enemy11" parent="Enemys/Enemy Normal" instance=ExtResource("2_fpu0b")]
+position = Vector2(2311, -2814)
+
+[node name="Enemy12" parent="Enemys/Enemy Normal" instance=ExtResource("2_fpu0b")]
+position = Vector2(1132, -3447)
+
+[node name="Enemy13" parent="Enemys/Enemy Normal" instance=ExtResource("2_fpu0b")]
+position = Vector2(-1176, -4209)
+
+[node name="Enemy14" parent="Enemys/Enemy Normal" instance=ExtResource("2_fpu0b")]
+position = Vector2(5463, -2378)
+
+[node name="Enemy15" parent="Enemys/Enemy Normal" instance=ExtResource("2_fpu0b")]
+position = Vector2(3983, -3840)
+
+[node name="Enemy17" parent="Enemys/Enemy Normal" instance=ExtResource("2_fpu0b")]
+position = Vector2(6947, -2462)
+
+[node name="Enemy18" parent="Enemys/Enemy Normal" instance=ExtResource("2_fpu0b")]
+position = Vector2(6047, -642)
+
+[node name="Enemy19" parent="Enemys/Enemy Normal" instance=ExtResource("2_fpu0b")]
+position = Vector2(5379, 551)
+
+[node name="Enemy24" parent="Enemys/Enemy Normal" instance=ExtResource("2_fpu0b")]
+position = Vector2(391, -1277)
+
+[node name="Enemy25" parent="Enemys/Enemy Normal" instance=ExtResource("2_fpu0b")]
+position = Vector2(6862, -719)
+
+[node name="Enemy26" parent="Enemys/Enemy Normal" instance=ExtResource("2_fpu0b")]
+position = Vector2(7010, 694)
+
+[node name="Enemy27" parent="Enemys/Enemy Normal" instance=ExtResource("2_fpu0b")]
+position = Vector2(4212, 1810)
+
+[node name="Enemy28" parent="Enemys/Enemy Normal" instance=ExtResource("2_fpu0b")]
+position = Vector2(1266, 3258)
+
+[node name="Enemy29" parent="Enemys/Enemy Normal" instance=ExtResource("2_fpu0b")]
+position = Vector2(2663, 1759)
+
+[node name="Enemy30" parent="Enemys/Enemy Normal" instance=ExtResource("2_fpu0b")]
+position = Vector2(4047, 3004)
+
+[node name="Enemy31" parent="Enemys/Enemy Normal" instance=ExtResource("2_fpu0b")]
+position = Vector2(41, 2058)
+
+[node name="Enemy Small" type="Node" parent="Enemys"]
+
+[node name="Enemy33" parent="Enemys/Enemy Small" instance=ExtResource("5_x12jm")]
+position = Vector2(6289, 1504)
+rotation = 0.0336353
+speed = 200.0
+
+[node name="Enemy34" parent="Enemys/Enemy Small" instance=ExtResource("5_x12jm")]
+position = Vector2(-948, 2179)
+rotation = 0.0336353
+speed = 200.0
+
+[node name="Enemy35" parent="Enemys/Enemy Small" instance=ExtResource("5_x12jm")]
+position = Vector2(1713, 2512)
+rotation = 0.0336353
+speed = 200.0
+
+[node name="SmallEnemy3" parent="Enemys/Enemy Small" instance=ExtResource("5_x12jm")]
 position = Vector2(4624, -1565)
 speed = 200.0
 
-[node name="Enemy" parent="Enemys" instance=ExtResource("2_fpu0b")]
-position = Vector2(1212, -255)
+[node name="SmallEnemy1" parent="Enemys/Enemy Small" instance=ExtResource("5_x12jm")]
+position = Vector2(-146, 649)
+speed = 200.0
 
-[node name="Enemy2" parent="Enemys" groups=["Enemies"] instance=ExtResource("2_fpu0b")]
-position = Vector2(-1207, 797)
+[node name="SmallEnemy2" parent="Enemys/Enemy Small" instance=ExtResource("5_x12jm")]
+position = Vector2(1046, -980)
+speed = 200.0
 
-[node name="Enemy3" parent="Enemys" groups=["Enemies"] instance=ExtResource("2_fpu0b")]
-position = Vector2(1819, -1546)
+[node name="SmallEnemy4" parent="Enemys/Enemy Small" instance=ExtResource("5_x12jm")]
+position = Vector2(362, -4319)
+speed = 200.0
 
-[node name="Enemy4" parent="Enemys" groups=["Enemies"] instance=ExtResource("2_fpu0b")]
-position = Vector2(3347, -406)
+[node name="SmallEnemy5" parent="Enemys/Enemy Small" instance=ExtResource("5_x12jm")]
+position = Vector2(3264, -2787)
+speed = 200.0
 
-[node name="Enemy5" parent="Enemys" groups=["Enemies"] instance=ExtResource("2_fpu0b")]
-position = Vector2(4329, 350)
+[node name="SmallEnemy6" parent="Enemys/Enemy Small" instance=ExtResource("5_x12jm")]
+position = Vector2(3160, 513)
+speed = 200.0
 
-[node name="BigEnemy1" parent="Enemys" instance=ExtResource("4_x5u1h")]
+[node name="SmallEnemy7" parent="Enemys/Enemy Small" instance=ExtResource("5_x12jm")]
+position = Vector2(2588, -1891)
+speed = 200.0
+
+[node name="Enemy21" parent="Enemys/Enemy Small" instance=ExtResource("5_x12jm")]
+position = Vector2(4075, -2286)
+speed = 200.0
+
+[node name="Enemy22" parent="Enemys/Enemy Small" instance=ExtResource("5_x12jm")]
+position = Vector2(537, -2724)
+speed = 200.0
+
+[node name="Enemy Big" type="Node" parent="Enemys"]
+
+[node name="BigEnemy2" parent="Enemys/Enemy Big" instance=ExtResource("4_x5u1h")]
+position = Vector2(1411, 447)
+speed = 50.0
+
+[node name="BigEnemy1" parent="Enemys/Enemy Big" instance=ExtResource("4_x5u1h")]
 position = Vector2(-178, -3663)
 collision_layer = 6
 collision_mask = 4
 speed = 50.0
 
-[node name="SmallEnemy1" parent="Enemys" instance=ExtResource("5_x12jm")]
-position = Vector2(-146, 649)
-speed = 200.0
-
-[node name="SmallEnemy2" parent="Enemys" instance=ExtResource("5_x12jm")]
-position = Vector2(1046, -980)
-speed = 200.0
-
-[node name="EnormousEnemy1" parent="Enemys" instance=ExtResource("7_3off7")]
-position = Vector2(4368, -2925)
-speed = 70.0
-
-[node name="BigEnemy3" parent="Enemys" instance=ExtResource("4_x5u1h")]
+[node name="BigEnemy3" parent="Enemys/Enemy Big" instance=ExtResource("4_x5u1h")]
 position = Vector2(5781, -3701)
 speed = 50.0
 
-[node name="BigEnemy4" parent="Enemys" instance=ExtResource("4_x5u1h")]
+[node name="BigEnemy4" parent="Enemys/Enemy Big" instance=ExtResource("4_x5u1h")]
 position = Vector2(4467, -764)
 speed = 50.0
 
-[node name="Enemy7" parent="Enemys" instance=ExtResource("2_fpu0b")]
-position = Vector2(6451, 236)
-
-[node name="Enemy8" parent="Enemys" instance=ExtResource("2_fpu0b")]
-position = Vector2(6318, -1591)
-
-[node name="Enemy9" parent="Enemys" instance=ExtResource("2_fpu0b")]
-position = Vector2(-610, -2661)
-
-[node name="Enemy10" parent="Enemys" instance=ExtResource("2_fpu0b")]
-position = Vector2(2984, -4179)
-
-[node name="Enemy11" parent="Enemys" instance=ExtResource("2_fpu0b")]
-position = Vector2(2311, -2814)
-
-[node name="SmallEnemy4" parent="Enemys" instance=ExtResource("5_x12jm")]
-position = Vector2(362, -4319)
-speed = 200.0
-
-[node name="SmallEnemy5" parent="Enemys" instance=ExtResource("5_x12jm")]
-position = Vector2(3264, -2787)
-speed = 200.0
-
-[node name="Enemy12" parent="Enemys" instance=ExtResource("2_fpu0b")]
-position = Vector2(1132, -3447)
-
-[node name="Enemy13" parent="Enemys" instance=ExtResource("2_fpu0b")]
-position = Vector2(-1176, -4209)
-
-[node name="Enemy14" parent="Enemys" instance=ExtResource("2_fpu0b")]
-position = Vector2(5463, -2378)
-
-[node name="Enemy15" parent="Enemys" instance=ExtResource("2_fpu0b")]
-position = Vector2(3983, -3840)
-
-[node name="Enemy16" parent="Enemys" instance=ExtResource("4_x5u1h")]
-position = Vector2(1906, -3820)
-speed = 50.0
-
-[node name="Enemy17" parent="Enemys" instance=ExtResource("2_fpu0b")]
-position = Vector2(6947, -2462)
-
-[node name="Enemy18" parent="Enemys" instance=ExtResource("2_fpu0b")]
-position = Vector2(6047, -642)
-
-[node name="Enemy19" parent="Enemys" instance=ExtResource("2_fpu0b")]
-position = Vector2(5379, 551)
-
-[node name="SmallEnemy6" parent="Enemys" instance=ExtResource("5_x12jm")]
-position = Vector2(3160, 513)
-speed = 200.0
-
-[node name="Enemy20" parent="Enemys" instance=ExtResource("5_x12jm")]
-position = Vector2(2588, -1891)
-speed = 200.0
-
-[node name="Enemy21" parent="Enemys" instance=ExtResource("5_x12jm")]
-position = Vector2(4075, -2286)
-speed = 200.0
-
-[node name="Enemy22" parent="Enemys" instance=ExtResource("5_x12jm")]
-position = Vector2(537, -2724)
-speed = 200.0
-
-[node name="Enemy23" parent="Enemys" instance=ExtResource("4_x5u1h")]
-position = Vector2(-1009, -1198)
-speed = 50.0
-
-[node name="Enemy24" parent="Enemys" instance=ExtResource("2_fpu0b")]
-position = Vector2(391, -1277)
-
-[node name="Enemy25" parent="Enemys" instance=ExtResource("2_fpu0b")]
-position = Vector2(6862, -719)
-
-[node name="Enemy26" parent="Enemys" instance=ExtResource("2_fpu0b")]
-position = Vector2(7010, 694)
-
-[node name="StrongEnemy3" parent="Enemys" instance=ExtResource("8_aixpu")]
-position = Vector2(4683, -2107)
-speed = 200.0
-
-[node name="StrongEnemy4" parent="Enemys" instance=ExtResource("8_aixpu")]
-position = Vector2(-1431, -3391)
-speed = 200.0
-
-[node name="StrongEnemy5" parent="Enemys" instance=ExtResource("8_aixpu")]
-position = Vector2(5360, 2080)
-speed = 200.0
-
-[node name="StrongEnemy6" parent="Enemys" instance=ExtResource("8_aixpu")]
-position = Vector2(7080, -3495)
-speed = 200.0
-
-[node name="StrongEnemy" parent="Enemys" instance=ExtResource("8_aixpu")]
-position = Vector2(4070, -4581)
-speed = 200.0
-
-[node name="StrongEnemy2" parent="Enemys" instance=ExtResource("8_aixpu")]
-position = Vector2(-1492, 550)
-speed = 200.0
-
-[node name="Enemy27" parent="Enemys" instance=ExtResource("2_fpu0b")]
-position = Vector2(4212, 1810)
-
-[node name="Enemy28" parent="Enemys" instance=ExtResource("2_fpu0b")]
-position = Vector2(1266, 3258)
-
-[node name="Enemy29" parent="Enemys" instance=ExtResource("2_fpu0b")]
-position = Vector2(2663, 1759)
-
-[node name="Enemy30" parent="Enemys" instance=ExtResource("2_fpu0b")]
-position = Vector2(4047, 3004)
-
-[node name="Enemy31" parent="Enemys" instance=ExtResource("2_fpu0b")]
-position = Vector2(41, 2058)
-
-[node name="Enemy32" parent="Enemys" instance=ExtResource("4_x5u1h")]
+[node name="Enemy32" parent="Enemys/Enemy Big" instance=ExtResource("4_x5u1h")]
 position = Vector2(2836, 2867)
 speed = 50.0
 
-[node name="Enemy33" parent="Enemys" instance=ExtResource("5_x12jm")]
-position = Vector2(6289, 1504)
-rotation = 0.0336353
+[node name="Enemy16" parent="Enemys/Enemy Big" instance=ExtResource("4_x5u1h")]
+position = Vector2(1906, -3820)
+speed = 50.0
+
+[node name="Enemy23" parent="Enemys/Enemy Big" instance=ExtResource("4_x5u1h")]
+position = Vector2(-1009, -1198)
+speed = 50.0
+
+[node name="Enemy Strong" type="Node" parent="Enemys"]
+
+[node name="StrongEnemy3" parent="Enemys/Enemy Strong" instance=ExtResource("8_aixpu")]
+position = Vector2(4683, -2107)
 speed = 200.0
 
-[node name="Enemy34" parent="Enemys" instance=ExtResource("5_x12jm")]
-position = Vector2(-948, 2179)
-rotation = 0.0336353
+[node name="StrongEnemy4" parent="Enemys/Enemy Strong" instance=ExtResource("8_aixpu")]
+position = Vector2(-1431, -3391)
 speed = 200.0
 
-[node name="Enemy35" parent="Enemys" instance=ExtResource("5_x12jm")]
-position = Vector2(1713, 2512)
-rotation = 0.0336353
+[node name="StrongEnemy5" parent="Enemys/Enemy Strong" instance=ExtResource("8_aixpu")]
+position = Vector2(5360, 2080)
 speed = 200.0
+
+[node name="StrongEnemy6" parent="Enemys/Enemy Strong" instance=ExtResource("8_aixpu")]
+position = Vector2(7080, -3495)
+
+[node name="StrongEnemy" parent="Enemys/Enemy Strong" instance=ExtResource("8_aixpu")]
+position = Vector2(4070, -4581)
+
+[node name="StrongEnemy2" parent="Enemys/Enemy Strong" instance=ExtResource("8_aixpu")]
+position = Vector2(-1492, 550)
+
+[node name="Enemy Misc" type="Node" parent="Enemys"]
+
+[node name="EnormousEnemy1" parent="Enemys/Enemy Misc" instance=ExtResource("7_3off7")]
+position = Vector2(4368, -2925)
+speed = 50.0
 
 [node name="Food" type="Node" parent="."]
 
@@ -284,4 +284,4 @@ position = Vector2(-173, -199)
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_h1doi")
 autoplay = true
-script = SubResource("GDScript_6s5qi")
+script = ExtResource("11_oce8p")
