@@ -34,6 +34,14 @@ offset_right = 19.0
 offset_bottom = 60.0
 text = "Exit"
 
+[node name="CreditsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 71.0
+offset_right = 185.0
+offset_bottom = 102.0
+text = "Credits"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
 
@@ -43,7 +51,7 @@ offset_left = -68.0
 offset_top = -105.0
 offset_right = 66.0
 offset_bottom = -41.0
-text = "   Microscopic
+text = "     Primordia
 the game of life"
 editable = false
 

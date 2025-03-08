@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://1o08nno01iod"]
+
+[ext_resource type="Script" path="res://Scripts/credits.gd" id="1_0rrp4"]
+[ext_resource type="Texture2D" uid="uid://0vlp8s8j5hhb" path="res://Assets/th.jpg" id="1_bqmu2"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_0rrp4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bqmu2")
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -189.0
+offset_top = -105.0
+offset_right = -144.0
+offset_bottom = -74.0
+text = "Back"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = -89.0
+offset_top = -79.0
+offset_right = 89.0
+offset_bottom = 14.0
+text = "             Credits
+  GameSupplyGuy
+For Bacteria Textures"
+editable = false
